@@ -12,11 +12,12 @@ Here we conducted these studies as followings.
 # Results
 In this analysis, the knowledge of Pandas and the Scikit-Learn’s StandardScaler() are applied to preprocess the dataset in order to compile, train, and evaluate the neural network model. Then we use TensorFlow to design a deep learning model, by assigning the number of input features and nodes for each layer using Tensorflow Keras. Then the binary classification model is set up that can predict if an Alphabet Soup–funded organization will be successful based on the features in the dataset. The model is followed by compiling and traning the binary classification model. The model’s loss and accuracy are finally calculated to evaluate the model.
 
-1. Data Preprocessing
+## 1. Data Preprocessing
     - Multiple non-benefit columns are removed and not used as target and feathers:
         - EIN
         - NAME
         - SPECIAL_CONSIDERATIONS
+        
     Different trials are tested to determine the final amount of feathers to train the model.
     
     - The column "IS_SUCCESSFUL" is used as the target for the model.
@@ -24,37 +25,45 @@ In this analysis, the knowledge of Pandas and the Scikit-Learn’s StandardScale
     - All other columns in the dataset except both non-benefit columns and target are considered to be the features.
 
 
-2. Compiling, Training, and Evaluating the Model
-    - Different neurons, layers, and activation functions are selected for neural network model in multiple trials.
+## 2. Compiling, Training, and Evaluating the Model
 
-    **Original Model**
+### Finding 1: Different neurons, layers, and activation functions are selected for neural network model in multiple trials.
+
+    ** Original Model **
 ![model_0](https://github.com/hankai26/Neural_Network_Charity_Analysis/blob/main/image/model_0.png)
 
-    **Model Optimization: 1**
+    ** Model Optimization: 1 **
+
 I tried to add one more hidden layers (3 in total) and different neurons as in the image to try to improve the model. The activation function for the last activation layer is also changed as "sigmoid".
 
 ![model_1](https://github.com/hankai26/Neural_Network_Charity_Analysis/blob/main/image/model_1.png)
 
 
-    **Model Optimization: 2**
+    ** Model Optimization: 2 **
 
 I increase the amount of hidden layers to 6 and more neurons, since the result in first optimization doesn't look better. The activation function is changed back to "relu" becasue it doesn't help much in last trial. Meanwhile, I increase the epochs to 200.
 
 ![model_2](https://github.com/hankai26/Neural_Network_Charity_Analysis/blob/main/image/model_2.png)
 
 
-    **Model Optimization: 3**
+    ** Model Optimization: 3 **
 
 Since the results from last two trials are not improved much. I set the number of hidden layers back to 3, but walk back to the original dataframe and further reduce more variables in selected columns. The activation function is also changed as in the following image.
 ![model_3](https://github.com/hankai26/Neural_Network_Charity_Analysis/blob/main/image/model_3.png)
 
 
-    - The summary table for model evaluations are prepared. It indicates that the highest model loss and accuracy are 0.565936 and 0.725364, respectively.
+
+
+
+### Finding 2: The summary table for model evaluations are prepared. It indicates that the highest model loss and accuracy are 0.565936 and 0.725364, respectively.
 
 ![Sum_table](https://github.com/hankai26/Neural_Network_Charity_Analysis/blob/main/image/Sum_table.png)
 
 
-    - The model is optimized in order to achieve a better predictive accuracy by using all of the following:
+
+
+
+### Finding 3: The model is optimized in order to achieve a better predictive accuracy by using all of the following:
         a. Adjusting the input data to ensure that there are no variables or outliers that are causing confusion in the model, such as:
             - Dropping more or fewer columns.
             - Creating more bins for rare occurrences in columns.
@@ -69,6 +78,8 @@ Since the results from last two trials are not improved much. I set the number o
 ![Opt2](https://github.com/hankai26/Neural_Network_Charity_Analysis/blob/main/image/Opt2.png)
 
 ![Opt3](https://github.com/hankai26/Neural_Network_Charity_Analysis/blob/main/image/Opt3.png)
+
+
 
 
 # Summary
